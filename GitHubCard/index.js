@@ -3,7 +3,19 @@
     (replacing the placeholder with your Github name):
     https://api.github.com/users/<your name>
 */
-
+const entryPoint = document.querySelector('.cards');
+const url =`https://api.github.com/users/jaredhall18`;
+axios.get(url)
+  .then(resp => {
+    console.log(resp.data);
+    const card = gitCardMaker(resp.data);
+    entryPoint.appendChild(card); //Append to the div we created cards
+  })
+  .catch(err => {
+    const errorMessage = document.createElement('p');
+    errorMessage.textContent = 'FAILED TO LOAD DATA';
+    entryPoint.appendChild(errorMessage);
+  });
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
     github info! You will need to understand the structure of this
@@ -28,7 +40,7 @@
     user, and adding that card to the DOM.
 */
 
-const followersArray = [];
+// const followersArray = [];
 
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
@@ -49,7 +61,34 @@ const followersArray = [];
       </div>
     </div>
 */
+// const gitCardMaker({ url, name, username, location, address, followers, following, bio }) {
+//   //instantiating elements
+//   const userCard = document.createElement('div');
+//   const userImage = document.createElement('img');
+//   const userCardInfo = document.createElement('div');
+//   const userNameTitle = document.createElement('h3');
+//   const userUsername = document.createElement('p');
+//   const userLocation = document.createElement('p');
+//   const userProfile = document.createElement('p');
+//   const userProfileURL = document.createElement('a');
+//   const userFollowers = document.createElement('p');
+//   const userFollowing = document.createElement('p');
+//   const userBio = document.createElement('p');
 
+//   //Setting Class Names, Attributes, and Text
+//   userCard.classList.add('card');
+//    userImage = document.createElement('img');
+//    userCardInfo = document.createElement('div');
+//    userNameTitle = document.createElement('h3');
+//    userUsername = document.createElement('p');
+//    userLocation = document.createElement('p');
+//    userProfile = document.createElement('p');
+//    userProfileURL = document.createElement('a');
+//    userFollowers = document.createElement('p');
+//    userFollowing = document.createElement('p');
+//    userBio = document.createElement('p');
+  
+// }
 /*
   List of LS Instructors Github username's:
     tetondan
