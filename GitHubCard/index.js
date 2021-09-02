@@ -61,7 +61,7 @@ const followersArray = [];
       </div>
     </div>
 */
-const gitCardMaker({ url, name, username, location, address, followers, following, bio }) {
+function gitCardMaker({ avatar_url, name, login, location, html_url, followers, following, bio }) {
   //instantiating elements
   const userCard = document.createElement('div');
   const userImage = document.createElement('img');
@@ -77,19 +77,32 @@ const gitCardMaker({ url, name, username, location, address, followers, followin
 
   //Setting Class Names, Attributes, and Text
   userCard.classList.add('card');
-    userImage.setAttribute('src', url);
+    userImage.setAttribute('src', avatar_url);
     userCardInfo.classList.add('cardInfo');
       userNameTitle.classList.add('name');
       userNameTitle.textContent = `${name}`;
       userUsername.classList.add('username')
-      userUsername.textContent = `${username}`;
+      userUsername.textContent = `${login}`;
       userLocation.textContent = `Location: ${location}`
       userProfile.textContent = `Profile: ${userProfileURL}` //Added the profile url to the profile p. Not sure if this is correct for the href
-      userProfileURL.textContent = `${address}`;
+      userProfileURL.textContent = `${html_url}`;
       userFollowers.textContent = `Followers: ${followers}`;
       userFollowing.textContent = `Following: ${following}`;
       userBio.textContent = `Bio: ${bio}`
   
+  //Appending elements  create hierarchy
+  userCard.appendChild(userImage);
+  userCard.appendChild(userCardInfo);
+  userCardInfo.appendChild(userNameTitle);
+  userCardInfo.appendChild(userUsername);
+  userCardInfo.appendChild(userLocation);
+  userCardInfo.appendChild(userProfile);
+  userCardInfo.appendChild(userFollowers);
+  userCardInfo.appendChild(userFollowing);
+  userCardInfo.appendChild(userBio);
+  userProfile.appendChild(userProfileURL);
+
+return userCard;
 }
 /*
   List of LS Instructors Github username's:
