@@ -40,7 +40,7 @@ axios.get(url)
     user, and adding that card to the DOM.
 */
 
-// const followersArray = [];
+const followersArray = [];
 
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
@@ -61,34 +61,36 @@ axios.get(url)
       </div>
     </div>
 */
-// const gitCardMaker({ url, name, username, location, address, followers, following, bio }) {
-//   //instantiating elements
-//   const userCard = document.createElement('div');
-//   const userImage = document.createElement('img');
-//   const userCardInfo = document.createElement('div');
-//   const userNameTitle = document.createElement('h3');
-//   const userUsername = document.createElement('p');
-//   const userLocation = document.createElement('p');
-//   const userProfile = document.createElement('p');
-//   const userProfileURL = document.createElement('a');
-//   const userFollowers = document.createElement('p');
-//   const userFollowing = document.createElement('p');
-//   const userBio = document.createElement('p');
+const gitCardMaker({ url, name, username, location, address, followers, following, bio }) {
+  //instantiating elements
+  const userCard = document.createElement('div');
+  const userImage = document.createElement('img');
+  const userCardInfo = document.createElement('div');
+  const userNameTitle = document.createElement('h3');
+  const userUsername = document.createElement('p');
+  const userLocation = document.createElement('p');
+  const userProfile = document.createElement('p');
+  const userProfileURL = document.createElement('a');
+  const userFollowers = document.createElement('p');
+  const userFollowing = document.createElement('p');
+  const userBio = document.createElement('p');
 
-//   //Setting Class Names, Attributes, and Text
-//   userCard.classList.add('card');
-//    userImage = document.createElement('img');
-//    userCardInfo = document.createElement('div');
-//    userNameTitle = document.createElement('h3');
-//    userUsername = document.createElement('p');
-//    userLocation = document.createElement('p');
-//    userProfile = document.createElement('p');
-//    userProfileURL = document.createElement('a');
-//    userFollowers = document.createElement('p');
-//    userFollowing = document.createElement('p');
-//    userBio = document.createElement('p');
+  //Setting Class Names, Attributes, and Text
+  userCard.classList.add('card');
+    userImage.setAttribute('src', url);
+    userCardInfo.classList.add('cardInfo');
+      userNameTitle.classList.add('name');
+      userNameTitle.textContent = `${name}`;
+      userUsername.classList.add('username')
+      userUsername.textContent = `${username}`;
+      userLocation.textContent = `Location: ${location}`
+      userProfile.textContent = `Profile: ${userProfileURL}` //Added the profile url to the profile p. Not sure if this is correct for the href
+      userProfileURL.textContent = `${address}`;
+      userFollowers.textContent = `Followers: ${followers}`;
+      userFollowing.textContent = `Following: ${following}`;
+      userBio.textContent = `Bio: ${bio}`
   
-// }
+}
 /*
   List of LS Instructors Github username's:
     tetondan
